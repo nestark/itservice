@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "itservice1/base.html" %}
+<html lang="en">
+
+{% block content %}
+    <p>
+    问题分类
+    </p>
+
+    <ul>
+      {% for topic in topics %}
+          <li>
+            <a href="{% url 'itservice1:topic' topic.id %}">{{ topic }}</a>
+          </li>
+      {% empty %}
+          <li>No topics have been added yet.</li>
+      {% endfor %}
+    </ul>
+
+{% endblock content %}
+</html>

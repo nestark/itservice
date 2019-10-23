@@ -1,0 +1,20 @@
+{% extends "itservice1/base.html" %}
+{% block content %}
+    {% if error_msg %}
+        <p>{{ error_msg }}</p>
+    {% endif %}
+<ul>
+    {% for post in post_list %}
+            <li>
+              <p>{{ post.title }}</p>
+              <p>{{ post.date_added|date:'M d, Y H:i' }}</p>
+              <p>{{ post.text|linebreaks }}</p>
+          </li>
+    {% empty %}
+        <div class="no-post">
+        没有搜索到符合条件的文章
+    </div>
+</ul>
+
+    {% endfor %}
+{% endblock content %}
